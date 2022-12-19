@@ -64,10 +64,10 @@ export const handleAction = async (data) => {
                 throw new Error(errors.invalidData);
         }
     } catch (error) {
-        if (error.message === errors.failed || error.message === errors.invalidData) {
-            writeln(error.failed);
-        } else {
+        if (error.message !== errors.failed || error.message !== errors.invalidData) {
             writeln(error.message);
+        } else {
+            writeln(errors.failed);
         }
     }
 

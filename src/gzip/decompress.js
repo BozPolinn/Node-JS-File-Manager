@@ -9,10 +9,10 @@ export const decompress = async (command) => {
 
     if (!data) return;
 
-    const pathToFile = getPath(data[1]);
-    const newLocation = getPath(data[2]);
-
     try {
+        const pathToFile = getPath(data[1]);
+        const newLocation = getPath(data[2]);
+
         const input = fs.createReadStream(pathToFile);
         const output = fs.createWriteStream(newLocation, 'utf-8');
         const value = await createBrotliDecompress();
